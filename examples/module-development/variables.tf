@@ -1,7 +1,16 @@
-variable "short" {
-  description = "This is passed as an environment variable, it is for a shorthand name for the environment, for example hello-world = hw"
+variable "azdo_org_guid" {
   type        = string
-  default     = "lbd"
+  description = "The guid of the org"
+}
+
+variable "azdo_org_name" {
+  type        = string
+  description = "The org name"
+}
+
+variable "azdo_project_name" {
+  type        = string
+  description = "The project name"
 }
 
 variable "env" {
@@ -20,4 +29,10 @@ variable "name" {
   type        = string
   description = "The name of this resource"
   default     = "tst"
+}
+
+variable "short" {
+  description = "This is passed as an environment variable, it is for a shorthand name for the environment, for example hello-world = hw"
+  type        = string
+  default     = "lbd"
 }
