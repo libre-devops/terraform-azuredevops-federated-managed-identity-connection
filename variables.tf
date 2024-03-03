@@ -31,10 +31,10 @@ variable "federated_credential_display_name" {
   default     = null
 }
 
-variable "role_definition_name_to_assign" {
+variable "location" {
+  description = "The location for this resource to be put in"
   type        = string
-  description = "The role definition needed to setup SPN, for security reasons, defautls to Reader"
-  default     = "Reader"
+  default     = "uksouth"
 }
 
 variable "managed_identity_description" {
@@ -49,11 +49,10 @@ variable "managed_identity_name" {
   default     = null
 }
 
-
-variable "location" {
-  description = "The location for this resource to be put in"
+variable "rg_id" {
   type        = string
-  default     = "uksouth"
+  description = "The id of a resource group, supplying this value stops the module from creating a resource group, defaults to null as created a resource group is the default behaviour"
+  default     = null
 }
 
 variable "rg_name" {
@@ -62,16 +61,14 @@ variable "rg_name" {
   default     = null
 }
 
+variable "role_definition_name_to_assign" {
+  type        = string
+  description = "The role definition needed to setup SPN, for security reasons, defautls to Reader"
+  default     = "Reader"
+}
+
 variable "tags" {
   type        = map(string)
   description = "A map of the tags to use on the resources that are deployed with this module."
   default     = {}
 }
-
-
-variable "rg_id" {
-  type        = string
-  description = "The id of a resource group, supplying this value stops the module from creating a resource group, defaults to null as created a resource group is the default behaviour"
-  default     = null
-}
-
