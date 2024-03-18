@@ -18,6 +18,21 @@ output "service_endpoint_service_principal_id" {
   value       = azuredevops_serviceendpoint_azurerm.azure_devops_service_endpoint_azurerm.service_principal_id
 }
 
+output "user_assigned_managed_identity_id" {
+  description = "The resource id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.id
+}
+
+output "user_assigned_managed_identity_object_id" {
+  description = "The object id id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.principal_id
+}
+
+output "user_assigned_managed_identity_tenant_id" {
+  description = "The tenant id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.tenant_id
+}
+
 output "workload_identity_federation_issuer" {
   description = "The issuer for the workload issuer"
   value       = azuredevops_serviceendpoint_azurerm.azure_devops_service_endpoint_azurerm.workload_identity_federation_issuer
