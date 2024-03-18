@@ -24,7 +24,7 @@ module "rg" {
 
 locals {
   rg_parts           = var.rg_id != null ? split("/", var.rg_id) : null
-  rg_name            = local.rg_parts != null ? local.rg_parts[-1] : null
+  rg_name            = local.rg_parts != null ? local.rg_parts[4] : null
   rg_subscription_id = local.rg_parts != null ? local.rg_parts[2] : null
 }
 
