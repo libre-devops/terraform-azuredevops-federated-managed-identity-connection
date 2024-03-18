@@ -72,13 +72,13 @@ resource "azurerm_federated_identity_credential" "federated_credential" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | ~>0.11.0 |
+| <a name="requirement_azuredevops"></a> [azuredevops](#requirement\_azuredevops) | >=0.11.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | ~>0.11.0 |
+| <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | >=0.11.0 |
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
 
 ## Modules
