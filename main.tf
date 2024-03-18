@@ -43,7 +43,7 @@ resource "azuredevops_serviceendpoint_azurerm" "azure_devops_service_endpoint_az
   service_endpoint_authentication_scheme = "WorkloadIdentityFederation"
 
   credentials {
-    serviceprincipalid = azurerm_user_assigned_identity.uid.principal_id
+    serviceprincipalid = azurerm_user_assigned_identity.uid.client_id
   }
 
   azurerm_spn_tenantid      = data.azurerm_client_config.current.tenant_id
