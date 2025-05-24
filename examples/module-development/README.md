@@ -20,8 +20,8 @@ No requirements.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.94.0 |
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.0 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
 ## Modules
 
@@ -44,7 +44,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_Regions"></a> [Regions](#input\_Regions) | Converts shorthand name to longhand name via lookup on map list | `map(string)` | <pre>{<br>  "eus": "East US",<br>  "euw": "West Europe",<br>  "uks": "UK South",<br>  "ukw": "UK West"<br>}</pre> | no |
+| <a name="input_Regions"></a> [Regions](#input\_Regions) | Converts shorthand name to longhand name via lookup on map list | `map(string)` | <pre>{<br/>  "eus": "East US",<br/>  "euw": "West Europe",<br/>  "uks": "UK South",<br/>  "ukw": "UK West"<br/>}</pre> | no |
 | <a name="input_azdo_org_guid"></a> [azdo\_org\_guid](#input\_azdo\_org\_guid) | The guid of the org | `string` | n/a | yes |
 | <a name="input_azdo_org_name"></a> [azdo\_org\_name](#input\_azdo\_org\_name) | The org name | `string` | n/a | yes |
 | <a name="input_azdo_project_name"></a> [azdo\_project\_name](#input\_azdo\_project\_name) | The project name | `string` | n/a | yes |
