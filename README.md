@@ -8,7 +8,8 @@ data "azuredevops_project" "project_id" {
 }
 
 locals {
-  default_managed_identity_name             = var.managed_identity_name != null ? var.managed_identity_name : "msi-azdo-${var.azuredevops_project_name}-${var.azuredevops_organization_guid}"
+  default_managed_identity_type             = var.managed_identity_type != null ? var.managed_identity_type : "UserAssigned"
+  default_managed_identity_name             = var.managed_identity_name != null ? var.managed_identity_name : "umsi-azdo-${var.azuredevops_project_name}-${var.azuredevops_organization_guid}"
   default_managed_identity_description      = var.managed_identity_description != null ? var.managed_identity_description : "This managed identity is for the federated credential of Azure DevOps of the project ${var.azuredevops_project_name}, in the organization ${var.azuredevops_organization_name} with guid ${var.azuredevops_organization_guid}"
   default_federated_credential_display_name = var.federated_credential_display_name != null ? var.federated_credential_display_name : "oidc-wlfid-${local.default_managed_identity_name}"
 }
@@ -107,7 +108,7 @@ resource "azurerm_federated_identity_credential" "federated_credential" {
 | <a name="input_azuredevops_organization_guid"></a> [azuredevops\_organization\_guid](#input\_azuredevops\_organization\_guid) | The unique ID of your Azure DevOps organisation | `string` | n/a | yes |
 | <a name="input_azuredevops_organization_name"></a> [azuredevops\_organization\_name](#input\_azuredevops\_organization\_name) | The name of your Azure DevOps organization | `string` | n/a | yes |
 | <a name="input_azuredevops_project_name"></a> [azuredevops\_project\_name](#input\_azuredevops\_project\_name) | The name of your Azure DevOps project you want to configure the federated cred for | `string` | n/a | yes |
-| <a name="input_federated_credential_audiences"></a> [federated\_credential\_audiences](#input\_federated\_credential\_audiences) | The audience for the credential, set to the default for Azure DevOps | `list(string)` | <pre>[<br>  "api://AzureADTokenExchange"<br>]</pre> | no |
+| <a name="input_federated_credential_audiences"></a> [federated\_credential\_audiences](#input\_federated\_credential\_audiences) | The audience for the credential, set to the default for Azure DevOps | `list(string)` | <pre>[<br/>  "api://AzureADTokenExchange"<br/>]</pre> | no |
 | <a name="input_federated_credential_display_name"></a> [federated\_credential\_display\_name](#input\_federated\_credential\_display\_name) | The display name of your federated credential in AzureAD/Entra for ID | `string` | `null` | no |
 | <a name="input_location"></a> [location](#input\_location) | The location for this resource to be put in | `string` | `"uksouth"` | no |
 | <a name="input_managed_identity_description"></a> [managed\_identity\_description](#input\_managed\_identity\_description) | The description of the service principal | `string` | `null` | no |
