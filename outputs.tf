@@ -1,6 +1,21 @@
+output "managed_identity_client_id" {
+  description = "The client id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.client_id
+}
+
 output "managed_identity_id" {
   description = "The id of the managed identity"
   value       = azurerm_user_assigned_identity.uid.id
+}
+
+output "managed_identity_principal_id" {
+  description = "The principal id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.principal_id
+}
+
+output "managed_identity_rg_name" {
+  description = "The rg_name of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.resource_group_name
 }
 
 output "service_endpoint_id" {
