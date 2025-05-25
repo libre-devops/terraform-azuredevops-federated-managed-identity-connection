@@ -8,8 +8,7 @@ data "azuredevops_project" "project_id" {
 }
 
 locals {
-  default_managed_identity_type             = var.managed_identity_type != null ? var.managed_identity_type : "UserAssigned"
-  default_managed_identity_name             = var.managed_identity_name != null ? var.managed_identity_name : "umsi-azdo-${var.azuredevops_project_name}-${var.azuredevops_organization_guid}"
+  default_managed_identity_name             = var.managed_identity_name != null ? var.managed_identity_name : "fedcred-msi-azdo-${var.azuredevops_project_name}-${var.azuredevops_organization_guid}"
   default_managed_identity_description      = var.managed_identity_description != null ? var.managed_identity_description : "This managed identity is for the federated credential of Azure DevOps of the project ${var.azuredevops_project_name}, in the organization ${var.azuredevops_organization_name} with guid ${var.azuredevops_organization_guid}"
   default_federated_credential_display_name = var.federated_credential_display_name != null ? var.federated_credential_display_name : "oidc-wlfid-${local.default_managed_identity_name}"
 }
