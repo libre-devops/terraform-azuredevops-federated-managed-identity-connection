@@ -52,6 +52,11 @@ resource "azuredevops_serviceendpoint_azurerm" "azure_devops_service_endpoint_az
   azurerm_subscription_name = data.azurerm_subscription.current.display_name
 }
 
+resource "time_sleep" "delay" {
+  destroy_duration = "30s"
+  depends_on       = [azuredevops_serviceendpoint_azurerm.azure_devops_service_endpoint_azurerm]
+}
+
 resource "azurerm_role_assignment" "assign_spn_to_subscription" {
   count                = var.attempt_assign_role_to_spn == true ? 1 : 0
   principal_id         = azurerm_user_assigned_identity.uid.principal_id
@@ -80,6 +85,7 @@ resource "azurerm_federated_identity_credential" "federated_credential" {
 |------|---------|
 | <a name="provider_azuredevops"></a> [azuredevops](#provider\_azuredevops) | >=1.0.1 |
 | <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_time"></a> [time](#provider\_time) | n/a |
 
 ## Modules
 
@@ -95,6 +101,7 @@ resource "azurerm_federated_identity_credential" "federated_credential" {
 | [azurerm_federated_identity_credential.federated_credential](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/federated_identity_credential) | resource |
 | [azurerm_role_assignment.assign_spn_to_subscription](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/role_assignment) | resource |
 | [azurerm_user_assigned_identity.uid](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/user_assigned_identity) | resource |
+| [time_sleep.delay](https://registry.terraform.io/providers/hashicorp/time/latest/docs/resources/sleep) | resource |
 | [azuredevops_project.project_id](https://registry.terraform.io/providers/microsoft/azuredevops/latest/docs/data-sources/project) | data source |
 | [azurerm_client_config.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/client_config) | data source |
 | [azurerm_subscription.current](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subscription) | data source |
