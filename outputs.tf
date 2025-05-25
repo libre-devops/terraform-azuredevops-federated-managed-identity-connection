@@ -1,3 +1,8 @@
+output "managed_identity_id" {
+  description = "The id of the managed identity"
+  value       = azurerm_user_assigned_identity.uid.id
+}
+
 output "service_endpoint_id" {
   description = "The id of the service endpoint"
   value       = azuredevops_serviceendpoint_azurerm.azure_devops_service_endpoint_azurerm.id

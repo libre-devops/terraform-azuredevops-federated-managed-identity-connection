@@ -121,6 +121,7 @@ resource "azurerm_federated_identity_credential" "federated_credential" {
 
 | Name | Description |
 |------|-------------|
+| <a name="output_managed_identity_id"></a> [managed\_identity\_id](#output\_managed\_identity\_id) | The id of the managed identity |
 | <a name="output_service_endpoint_id"></a> [service\_endpoint\_id](#output\_service\_endpoint\_id) | The id of the service endpoint |
 | <a name="output_service_endpoint_name"></a> [service\_endpoint\_name](#output\_service\_endpoint\_name) | The project name of the service endpoint is made with |
 | <a name="output_service_endpoint_project_id"></a> [service\_endpoint\_project\_id](#output\_service\_endpoint\_project\_id) | The project id of the service endpoint is made with |
